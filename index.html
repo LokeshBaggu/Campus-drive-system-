@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Campus Drive Prediction System</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <!-- Google Fonts for typography -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Placement Predictor</h1>
+            <p>Enter your details to check eligibility</p>
+        </header>
+
+        <main>
+            <form id="predictionForm">
+                <div class="form-group">
+                    <label for="cgpa">Current CGPA (out of 10)</label>
+                    <input type="number" id="cgpa" name="cgpa" min="0" max="10" step="0.01" required placeholder="e.g., 8.5">
+                </div>
+
+                <div class="form-group">
+                    <label for="skills">Number of Core Skills (e.g., Python, React)</label>
+                    <input type="number" id="skills" name="skills" min="0" max="20" required placeholder="e.g., 3">
+                </div>
+
+                <div class="form-group">
+                    <label for="projects">Number of Projects</label>
+                    <input type="number" id="projects" name="projects" min="0" max="20" required placeholder="e.g., 2">
+                </div>
+
+                <button type="submit" id="submitBtn">
+                    <span class="btn-text">Predict Eligibility</span>
+                    <div class="spinner" id="spinner"></div>
+                </button>
+            </form>
+
+            <div id="resultContainer" class="result-container hidden">
+                <div class="result-card" id="resultCard">
+                    <h2 id="resultHeading">Prediction Result</h2>
+                    <p id="resultText" class="result-text"></p>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
